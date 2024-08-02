@@ -7,19 +7,38 @@ export const productReducer = (state={isError:false, isLoading: false , data : [
                           return { isLoading : false, isError : false , data : [...action.payload] } 
         case LOADING : return {...state, isLoading : true, isError : false} 
         case ERROR : return {...state, isLoading: false, isError : true}
-        case PLTH : 
+
+        
+        case PHTL : 
                       console.log("price low to high reducer")
                       let ar1 = [...action.payload] 
-                       ar1 = ar1.sort((a,b)=>Number(a.price)-Number(b.price))
+                      for (let i=0;i<ar1.length;i++){
+                        for(let j=0;j<ar1.length;j++){
+                          if(ar1[i].price>ar1[j].price){
+                            let temp = ar1[i].price ;
+                            ar1[i].price = ar1[j].price ;
+                            ar1[j].price = temp ;
+                          }
+                        }
+                      }
                        console.log(ar1) ;
                        return {data : ar1, isLoading : false, isError : false} 
         
-        case PHTL : 
+        case PLTH : 
                        console.log("price high to low reducer")
                        let ar2 = [...action.payload] 
-                       ar2 = ar2.sort((a,b)=>Number(b.price)-Number(a.price)) 
+                       for (let i=0;i<ar2.length;i++){
+                        for(let j=0;j<ar2.length;j++){
+                          if(ar2[i].price<ar2[j].price){
+                            let temp = ar2[i].price ;
+                            ar2[i].price = ar2[j].price ;
+                            ar2[j].price = temp ;
+                          }
+                        }
+                      }
                        console.log(ar2) ;
                        return {data : ar2, isLoading : false , isError : false}
+
 
         case aTz :  
                        let arA1 = [...action.payload] 
