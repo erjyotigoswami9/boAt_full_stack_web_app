@@ -124,11 +124,12 @@ export const ReviewForm = memo(({product_id}) => {
                           <button>Verified</button>
                           <p>{review?.dateOfWriting}</p>
                           <div className="starsDiv2">
-                            <img width="15" height="15" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" alt="stars"/>
-                            <img width="15" height="15" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" alt="stars"/>
-                            <img width="15" height="15" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" alt="stars"/>
-                            <img width="15" height="15" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" alt="stars"/>
-                            <img width="15" height="15" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" alt="stars"/>
+                            
+                            <img width="15" height="15" src={ review?.reviewRating >= 1 ? "https://cdn-icons-png.flaticon.com/128/1828/1828884.png" : "https://cdn-icons-png.flaticon.com/128/16/16666.png"} alt="stars"/>
+                            <img width="15" height="15" src={ review?.reviewRating >= 2 ? "https://cdn-icons-png.flaticon.com/128/1828/1828884.png" : "https://cdn-icons-png.flaticon.com/128/16/16666.png"} alt="stars"/>
+                            <img width="15" height="15" src={ review?.reviewRating >= 3 ? "https://cdn-icons-png.flaticon.com/128/1828/1828884.png" : "https://cdn-icons-png.flaticon.com/128/16/16666.png"} alt="stars"/>
+                            <img width="15" height="15" src={ review?.reviewRating >= 4 ? "https://cdn-icons-png.flaticon.com/128/1828/1828884.png" : "https://cdn-icons-png.flaticon.com/128/16/16666.png"} alt="stars"/>
+                            <img width="15" height="15" src={ review?.reviewRating >= 5 ? "https://cdn-icons-png.flaticon.com/128/1828/1828884.png" : "https://cdn-icons-png.flaticon.com/128/16/16666.png"} alt="stars"/>
                           </div>
                           <p>{review?.reviewBox}</p>
                        </div>
